@@ -63,14 +63,12 @@ public class Aluno extends Escola implements AlunoUtil {
                 return 0;
             }
         }catch (Exception a){
-
         }
         return 0;
     }
 
     @Override
     public String getaprovacao() {
-
             if (notasMedia(this.nota)>=6){
                 return "APROVADO";
             }else if (nota==null){

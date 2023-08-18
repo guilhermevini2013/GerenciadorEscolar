@@ -80,6 +80,16 @@ public class TelaAluno extends JFrame {
                 }
             }
         });
+        miGerarRelatorio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Relatorios relatorio_aluno = new Relatorios();
+                getContentPane().removeAll();
+                getContentPane().add(relatorio_aluno);
+                getContentPane().validate();
+                repaint();
+            }
+        });
         jmiCadastroAluno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
