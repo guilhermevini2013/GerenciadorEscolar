@@ -91,13 +91,25 @@ public class CadastroAluno extends JPanel {
         jbCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nome = jtfNome.getText();
-                String cpf=jtfCpf.getText();
-                int data=Integer.parseInt(dataMatricula.getText());
-                long matricula=Long.parseLong(numeroMatricula.getText());
-                int anoEscolar=Integer.parseInt(jtfSerie.getText());
-                String urlFoto=url.getText();
-                TelaAluno.alunoList.add(new Aluno(nome,cpf,data,matricula,anoEscolar,urlFoto));
+                if (!jtfSerie.getText().isEmpty()&&!jtfCpf.getText().isEmpty()&&!jtfNome.getText().isEmpty()&&!numeroMatricula.getText().isEmpty()&&!dataMatricula.getText().isEmpty()&&!url.getText().isEmpty()){
+                    String nome = jtfNome.getText();
+                    String cpf=jtfCpf.getText();
+                    int data=Integer.parseInt(dataMatricula.getText());
+                    long matricula=Long.parseLong(numeroMatricula.getText());
+                    int anoEscolar=Integer.parseInt(jtfSerie.getText());
+                    String urlFoto=url.getText();
+                    TelaAluno.alunoList.add(new Aluno(nome,cpf,data,matricula,anoEscolar,urlFoto));
+                    jtfNome.setText("");
+                    jtfCpf.setText("");
+                    jtfSerie.setText("");
+                    url.setText("");
+                    numeroMatricula.setText("");
+                    dataMatricula.setText("");
+                    JOptionPane.showMessageDialog(null,"ALUNO CADASTRADO");
+                }else {
+                    JOptionPane.showMessageDialog(null,"PREENCHA TODOS OS CAMPOS");
+                }
+
             }
         });
 

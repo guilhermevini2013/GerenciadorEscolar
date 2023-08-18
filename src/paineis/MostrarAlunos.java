@@ -72,24 +72,28 @@ public class MostrarAlunos extends JPanel {
         jbMostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                long numeroAluno = Long.parseLong(tprocurar.getText());
-                boolean achou = false;
-                for (Aluno aluno:TelaAluno.alunoList) {
-                    if (aluno.getMatricula()==numeroAluno){
-                        lnome.setText(aluno.getNome());
-                        lcpf.setText(aluno.getCpf());
-                        lserie.setText(String.valueOf(aluno.getAnoEscolar())+" ANO");
-                        lserie.setBounds(383,245,100,30);
-                        lcpf.setBounds(375,213,200,30);
-                        lnome.setBounds(388,182,300,30);
-                        limg2.setBounds(180,140,450,160);
-                        binf.setBounds(528,205,34,34);
-                        achou=true;
-                        break;
+                if (!tprocurar.getText().isEmpty()){
+                    long numeroAluno = Long.parseLong(tprocurar.getText());
+                    boolean achou = false;
+                    for (Aluno aluno:TelaAluno.alunoList) {
+                        if (aluno.getMatricula()==numeroAluno){
+                            lnome.setText(aluno.getNome());
+                            lcpf.setText(aluno.getCpf());
+                            lserie.setText(String.valueOf(aluno.getAnoEscolar())+" ANO");
+                            lserie.setBounds(383,245,100,30);
+                            lcpf.setBounds(375,213,200,30);
+                            lnome.setBounds(388,182,300,30);
+                            limg2.setBounds(180,140,450,160);
+                            binf.setBounds(528,205,34,34);
+                            achou=true;
+                            break;
+                        }
                     }
-                }
-                if (achou==false){
-                    JOptionPane.showMessageDialog(null,"ALUNO NAO ENCONTRADO");
+                    if (achou==false){
+                        JOptionPane.showMessageDialog(null,"ALUNO NAO ENCONTRADO");
+                    }
+                }else {
+                    JOptionPane.showMessageDialog(null,"PREENCHA TODOS OS CAMPOS");
                 }
             }
         });
