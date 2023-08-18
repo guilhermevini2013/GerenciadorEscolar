@@ -50,22 +50,34 @@ public class Aluno extends Escola implements AlunoUtil {
     }
 
     public double notasMedia(List<Double> notas) {
-        double totalMedia=0;
-        for (Double nota:notas) {
-            totalMedia+=nota;
-            System.out.println(totalMedia);
+        try {
+            if (!notas.isEmpty()){
+                double totalMedia=0;
+                for (Double nota:notas) {
+                    totalMedia+=nota;
+                    System.out.println(totalMedia);
+                }
+                totalMedia=totalMedia/notas.size();
+                return totalMedia;
+            }else {
+                return 0;
+            }
+        }catch (Exception a){
+
         }
-        totalMedia=totalMedia/notas.size();
-        return totalMedia;
+        return 0;
     }
 
     @Override
     public String getaprovacao() {
-        if (notasMedia(this.nota)>=6){
-            return "APROVADO";
-        }else {
-            return "REPROVADO";
-        }
+
+            if (notasMedia(this.nota)>=6){
+                return "APROVADO";
+            }else if (nota==null){
+                return "AGUARDANDO NOTA";
+            }else {
+                return "REPROVADO";
+            }
     }
     public String mostrarDados(){
         notasMedia(nota);
