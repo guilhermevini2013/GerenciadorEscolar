@@ -54,7 +54,6 @@ public class Relatorios extends JPanel {
         for (Aluno aluno:TelaAluno.alunoList) {
 
             try {
-
                 mediasTodas.add(aluno.notasMedia(aluno.getNota()));
             }catch (Exception a){
             }
