@@ -1,6 +1,7 @@
 package paineis;
 
 import models.Aluno;
+import view.TelaAluno;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,11 +17,10 @@ public class CadastroAluno extends JPanel {
 
     private ImageIcon imagem;
 
-    List<Aluno> alunoList;
 
-    public CadastroAluno(List<Aluno> alunoList) {
+
+    public CadastroAluno() {
         setLayout(null);
-        this.alunoList=alunoList;
         Color minhaCor = new Color(135,206,250);
         setBackground(minhaCor);
         iniciarComponentes();
@@ -97,7 +97,7 @@ public class CadastroAluno extends JPanel {
                 long matricula=Long.parseLong(numeroMatricula.getText());
                 int anoEscolar=Integer.parseInt(jtfSerie.getText());
                 String urlFoto=url.getText();
-                alunoList.add(new Aluno(nome,cpf,data,matricula,anoEscolar,urlFoto));
+                TelaAluno.alunoList.add(new Aluno(nome,cpf,data,matricula,anoEscolar,urlFoto));
             }
         });
 

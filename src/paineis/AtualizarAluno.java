@@ -6,9 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
-public class CadastroAluno extends JPanel {
+public class AtualizarAluno extends JPanel {
 
     JLabel limg;
     JTextField jtfNome , jtfMatricula, jtfCpf, jtfData, url, jtfSerie;
@@ -16,11 +15,11 @@ public class CadastroAluno extends JPanel {
 
     private ImageIcon imagem;
 
-    List<Aluno> alunoList;
+    Aluno aluno;
 
-    public CadastroAluno(List<Aluno> alunoList) {
+    public AtualizarAluno(Aluno aluno) {
         setLayout(null);
-        this.alunoList=alunoList;
+        this.aluno=aluno;
         Color minhaCor = new Color(135,206,250);
         setBackground(minhaCor);
         iniciarComponentes();
@@ -31,24 +30,22 @@ public class CadastroAluno extends JPanel {
         Font font = new Font(Font.SANS_SERIF,Font.BOLD,17);
         imagem = new ImageIcon(getClass().getResource("/resurce/aluno.png"));
         limg = new JLabel(imagem);
+        jtfSerie = new JTextField(String.valueOf(aluno.getAnoEscolar()));
+        add(jtfSerie);
 
-
-        jtfCpf = new JTextField();
+        jtfCpf = new JTextField(aluno.getCpf());
         add(jtfCpf);
 
-        jtfData = new JTextField();
+        jtfData = new JTextField(String.valueOf(aluno.getMatricula()));
         add(jtfData);
-        jtfMatricula = new JTextField();
+        jtfMatricula = new JTextField(String.valueOf(aluno.getData()));
         add(jtfMatricula);
 
-        jtfNome = new JTextField();
+        jtfNome = new JTextField(aluno.getNome());
         add(jtfNome);
 
-        url = new JTextField();
+        url = new JTextField(aluno.getUrlFoto());
         add(url);
-
-        jtfSerie = new JTextField();
-        add(jtfSerie);
 
         jbCadastrar = new JButton("");
         add(jbCadastrar);
@@ -91,13 +88,13 @@ public class CadastroAluno extends JPanel {
         jbCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nome = jtfNome.getText();
-                String cpf=jtfCpf.getText();
-                int data=Integer.parseInt(jtfData.getText());
-                long matricula=Long.parseLong(jtfMatricula.getText());
-                int anoEscolar=Integer.parseInt(jtfSerie.getText());
-                String urlFoto=url.getText();
-                alunoList.add(new Aluno(nome,cpf,data,matricula,anoEscolar,urlFoto));
+                aluno.setNome(jtfNome.getText());
+                aluno.setCpf(jtfCpf.getText());
+                aluno.setData(Integer.parseInt(jtfData.getText()));
+                aluno.setMatricula(Long.parseLong(jtfMatricula.getText()));
+                aluno.setAnoEscolar(Integer.parseInt(jtfSerie.getText()));
+                aluno.setUrlFoto(url.getText());
+                JOptionPane.showMessageDialog(null,"ALTERADO COM SUCESSO");
             }
         });
 

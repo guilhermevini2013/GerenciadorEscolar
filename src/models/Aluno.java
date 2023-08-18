@@ -66,4 +66,11 @@ public class Aluno extends Escola implements AlunoUtil {
         }
         return false;
     }
+    public String mostrarDados(){
+        return "\nNome: "+super.getNome()+
+                "\nCPF: "+super.getCpf()+
+                "\nSerie: "+this.anoEscolar+" ANO"+
+                "\nData de Matricula: "+super.getData()+
+                "\nNumero: "+this.matricula;
+    }
 }
