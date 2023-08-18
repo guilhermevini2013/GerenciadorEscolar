@@ -14,10 +14,10 @@ import java.util.List;
 public class TelaAluno extends JFrame {
 
     private JMenuBar jmbBarra;
-    private JMenu jmAluno,jmOpcoes;
+    private JMenu jmAluno,mRelatorios;
     private ImageIcon imagem;
     JLabel limg;
-    private JMenuItem jmiCadastroAluno, jmiMostrarAluno, jmiAtualizarAluno,jmiSair;
+    private JMenuItem jmiCadastroAluno, jmiMostrarAluno, jmiAtualizarAluno,miGerarRelatorio,miAdcNotas;
     public static List<Aluno> alunoList= new ArrayList<>();
     public TelaAluno(String title, List<Aluno> alunoList) throws HeadlessException {
         super(title);
@@ -37,20 +37,20 @@ public class TelaAluno extends JFrame {
         jmbBarra = new JMenuBar();
         setJMenuBar(jmbBarra);
         jmAluno = new JMenu("Aluno");
-        jmOpcoes = new JMenu("Opções");
+        mRelatorios = new JMenu("Relatorios");
         jmbBarra.add(jmAluno);
-        jmbBarra.add(jmOpcoes);
-
+        jmbBarra.add(mRelatorios);
         jmiAtualizarAluno = new JMenuItem("Atualizar"); //
         jmiCadastroAluno = new JMenuItem("Cadastrar");//
+        miAdcNotas = new JMenuItem("Adicionar Notas");
         jmiMostrarAluno = new JMenuItem("Mostrar");//
-        jmiSair = new JMenuItem("Sair");
-        add(limg);
+        miGerarRelatorio = new JMenuItem("Gerar Relatorios");
+        mRelatorios.add(miGerarRelatorio);
         jmAluno.add(jmiCadastroAluno);
-        jmAluno.add(jmiMostrarAluno);//
         jmAluno.add(jmiAtualizarAluno);
         jmAluno.add(jmiMostrarAluno);
-        jmOpcoes.add(jmiSair);
+        jmAluno.add(miAdcNotas);
+        add(limg);
         limg.setBounds(0,0,800,500);
 
     }
@@ -91,7 +91,30 @@ public class TelaAluno extends JFrame {
 
             }
         });
-
+        miAdcNotas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    long numeroMatricula = Long.parseLong(JOptionPane.showInputDialog("ESCREVA O NUMERO DA MATRICULA DO ALUNO"));
+                    boolean achou=false;
+                    for (Aluno aluno:alunoList) {
+                        if (aluno.getMatricula()==numeroMatricula){
+                            AdicionarNotas NotasAluno_aluno = new AdicionarNotas(aluno);
+                            getContentPane().removeAll();
+                            getContentPane().add(NotasAluno_aluno);
+                            getContentPane().validate();
+                            repaint();
+                            achou=true;
+                            break;
+                        }
+                    }
+                    if (achou==false){
+                        JOptionPane.showMessageDialog(null,"ALUNO NAO ENCONTRADO");
+                    }
+                }catch (Exception a){
+                }
+            }
+        });
 
         jmiMostrarAluno.addActionListener(new ActionListener() {
             @Override

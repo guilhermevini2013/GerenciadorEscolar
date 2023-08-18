@@ -60,17 +60,20 @@ public class Aluno extends Escola implements AlunoUtil {
     }
 
     @Override
-    public boolean getaprovacao() {
+    public String getaprovacao() {
         if (notasMedia(this.nota)>=6){
-            return true;
+            return "APROVADO";
+        }else {
+            return "REPROVADO";
         }
-        return false;
     }
     public String mostrarDados(){
+        notasMedia(nota);
         return "\nNome: "+super.getNome()+
                 "\nCPF: "+super.getCpf()+
                 "\nSerie: "+this.anoEscolar+" ANO"+
                 "\nData de Matricula: "+super.getData()+
-                "\nNumero: "+this.matricula;
+                "\nNumero: "+this.matricula+
+                "\nSITUACAO: "+getaprovacao();
     }
 }
