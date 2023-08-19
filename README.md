@@ -8,7 +8,7 @@ O Gerenciador de Escola oferece as seguintes funcionalidades:
 
 Cadastro de Alunos e Professores : A aplicação permite o cadastro de informações detalhadas sobre alunos, professores.
 Cada entidade é representada por uma classe específica, utilizando herança para compartilhar características comuns.
-<img src="/assets/img/arquivo.gif">
+<img src="/src/resurce/foto.png">
 
 Consulta e Visualização: O usuário pode consultar informações específicas sobre alunos, professores e cursos cadastrados.
 Através de uma interface amigável, os dados são apresentados de maneira organizada, facilitando a compreensão.
