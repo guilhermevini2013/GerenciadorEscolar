@@ -1,4 +1,4 @@
-package paineis;
+package view.paineis;
 
 import javax.swing.*;
 import java.awt.*;

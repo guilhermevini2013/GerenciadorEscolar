@@ -1,4 +1,4 @@
-package paineis;
+package view.paineis;
 
 import models.Aluno;
 

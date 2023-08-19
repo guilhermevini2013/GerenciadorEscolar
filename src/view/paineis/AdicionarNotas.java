@@ -1,7 +1,6 @@
-package paineis;
+package view.paineis;
 
 import models.Aluno;
-import view.TelaAluno;
 
 import javax.swing.*;
 import java.awt.*;

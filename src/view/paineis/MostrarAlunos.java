@@ -1,4 +1,4 @@
-package paineis;
+package view.paineis;
 
 import models.Aluno;
 import view.TelaAluno;
@@ -7,8 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MostrarAlunos extends JPanel {
     JButton jbMostrar;

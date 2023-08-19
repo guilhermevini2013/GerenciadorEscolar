@@ -1,7 +1,7 @@
 package view;
 
 import models.Aluno;
-import paineis.*;
+import view.paineis.*;
 
 
 import javax.swing.*;

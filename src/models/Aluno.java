@@ -56,7 +56,6 @@ public class Aluno extends Escola implements AlunoUtil {
                 double totalMedia=0;
                 for (Double nota:notas) {
                     totalMedia+=nota;
-                    System.out.println(totalMedia);
                 }
                 totalMedia=totalMedia/notas.size();
                 return totalMedia;
