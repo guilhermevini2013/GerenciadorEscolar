@@ -10,13 +10,13 @@ Cadastro de Alunos e Professores : A aplicação permite o cadastro de informaç
 Cada entidade é representada por uma classe específica, utilizando herança para compartilhar características comuns.<br>
 <img src="src/resurce/foto.png">
 
-Consulta e Visualização: O usuário pode consultar informações específicas sobre alunos, professores e cursos cadastrados.
+Consulta e Visualização: O usuário pode consultar informações específicas sobre alunos, professores.
 Através de uma interface amigável, os dados são apresentados de maneira organizada, facilitando a compreensão.
 
 Atualização e Remoção: A aplicação permite a atualização e remoção de informações cadastradas.
-Isso inclui a possibilidade de atualizar notas de alunos, informações de contato de professores e detalhes dos cursos.
+Isso inclui a possibilidade de atualizar notas de alunos, informações de contato de professores.
 
-Geração de Relatórios: O gerenciador permite gerar relatórios contendo informações consolidadas, como médias de alunos, lista de cursos disponíveis e outras estatísticas relevantes.
+Geração de Relatórios: O gerenciador permite gerar relatórios contendo informações consolidadas, como médias de alunos.
 
 Interface Gráfica Intuitiva: A interface do usuário é construída utilizando a biblioteca Swing.
 O uso de JFrames e JPanels proporciona uma experiência interativa, permitindo que o usuário navegue pelas funcionalidades de maneira intuitiva.
