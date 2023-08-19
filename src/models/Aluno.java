@@ -50,6 +50,7 @@ public class Aluno extends Escola implements AlunoUtil {
     }
 
     public double notasMedia(List<Double> notas) {
+        // GERA A MEDIA DE TODAS AS NOTAS DE UM UNICO ALUNO
         try {
             if (!notas.isEmpty()){
                 double totalMedia=0;

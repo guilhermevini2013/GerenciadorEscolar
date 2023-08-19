@@ -11,7 +11,7 @@ public class AtualizarAluno extends JPanel {
 
     JLabel limg;
     JTextField jtfNome , jtfMatricula, jtfCpf, jtfData, url, jtfSerie;
-    JButton jbCadastrar;
+    JButton batt;
 
     private ImageIcon imagem;
 
@@ -47,13 +47,13 @@ public class AtualizarAluno extends JPanel {
         url = new JTextField(aluno.getUrlFoto());
         add(url);
 
-        jbCadastrar = new JButton("");
-        add(jbCadastrar);
+        batt = new JButton("");
+        add(batt);
         add(limg);
-        jbCadastrar.setOpaque(false);
-        jbCadastrar.setBackground(new Color(0,0,0,0));
-        jbCadastrar.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        jbCadastrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        batt.setOpaque(false);
+        batt.setBackground(new Color(0,0,0,0));
+        batt.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        batt.setCursor(new Cursor(Cursor.HAND_CURSOR));
         jtfCpf.setOpaque(false);
         jtfCpf.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         jtfCpf.setFont(font);
@@ -79,15 +79,16 @@ public class AtualizarAluno extends JPanel {
         jtfSerie.setBounds(185, 210, 45, 30);
         jtfData.setBounds(281, 295, 90, 30);
         url.setBounds(220, 333, 150, 30);
-        jbCadastrar.setBounds(170, 385, 180, 40);
+        batt.setBounds(170, 385, 180, 40);
         limg.setBounds(0,0,800,500);
     }
 
     private void criarEventos() {
 
-        jbCadastrar.addActionListener(new ActionListener() {
+        batt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //ALTERAR INFORMACAO DO ALUNO
                 aluno.setNome(jtfNome.getText());
                 aluno.setCpf(jtfCpf.getText());
                 aluno.setData(Integer.parseInt(jtfData.getText()));

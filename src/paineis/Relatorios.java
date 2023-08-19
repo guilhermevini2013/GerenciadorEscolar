@@ -5,8 +5,6 @@ import view.TelaAluno;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,6 +32,8 @@ public class Relatorios extends JPanel {
         taRelatorio2 = new JTextArea();
         taRelatorio2.setOpaque(false);
         taRelatorio2.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        taRelatorio2.setLineWrap(true);
+        taRelatorio1.setLineWrap(true);
         add(taRelatorio2);
         add(taRelatorio1);
         add(limg);
@@ -42,6 +42,7 @@ public class Relatorios extends JPanel {
         limg.setBounds(0,0,800,500);
     }
     private void criarEventos() {
+        //GERA RELATORIOS AUTOMATICAMENTE
         //EXIBIR NOTAS
         for (Aluno aluno:TelaAluno.alunoList) {
             try {

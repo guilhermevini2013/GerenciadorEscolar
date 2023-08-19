@@ -91,6 +91,7 @@ public class CadastroAluno extends JPanel {
         jbCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //CADASTRA ALUNO
                 if (!jtfSerie.getText().isEmpty()&&!jtfCpf.getText().isEmpty()&&!jtfNome.getText().isEmpty()&&!numeroMatricula.getText().isEmpty()&&!dataMatricula.getText().isEmpty()&&!url.getText().isEmpty()){
                     String nome = jtfNome.getText();
                     String cpf=jtfCpf.getText();

@@ -72,6 +72,7 @@ public class MostrarAlunos extends JPanel {
         jbMostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //MOSTRA ALUNO
                 if (!tprocurar.getText().isEmpty()){
                     long numeroAluno = Long.parseLong(tprocurar.getText());
                     boolean achou = false;
@@ -98,6 +99,7 @@ public class MostrarAlunos extends JPanel {
             }
         });
         binf.addActionListener(new ActionListener() {
+            //MOSTRA A INFORMACAO DO ALUNO
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean achou = false;
