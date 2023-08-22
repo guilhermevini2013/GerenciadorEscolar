@@ -1,8 +1,7 @@
 package models;
 
-public abstract class Funcionarios extends Escola{
+public abstract class Funcionarios extends Gerenciaveis {
     private double salario;
-
 
     public Funcionarios(String nome, String cpf, int data,double salario) {
         super(nome, cpf, data);

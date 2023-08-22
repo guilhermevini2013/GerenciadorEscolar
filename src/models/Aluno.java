@@ -1,10 +1,8 @@
 package models;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
-public class Aluno extends Escola implements AlunoUtil {
+public class Aluno extends Gerenciaveis implements AlunoUtil {
     private long matricula;
     private int anoEscolar;
     private  List<Double> nota;

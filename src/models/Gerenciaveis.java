@@ -1,11 +1,11 @@
 package models;
 
-public abstract class Escola {
+public abstract class Gerenciaveis {
     private String nome;
     private String cpf;
     private int data;
 
-    public Escola(String nome, String cpf, int data) {
+    public Gerenciaveis(String nome, String cpf, int data) {
         this.nome = nome;
         this.cpf = cpf;
         this.data = data;

@@ -2,8 +2,6 @@ package view;
 
 import models.Aluno;
 import view.paineis.*;
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
