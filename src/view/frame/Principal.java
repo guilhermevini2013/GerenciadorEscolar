@@ -1,6 +1,7 @@
 package view.frame;
 
 import models.Aluno;
+import models.Professores;
 import view.paineis.*;
 import javax.swing.*;
 import java.awt.*;
@@ -12,11 +13,12 @@ import java.util.List;
 public class Principal extends JFrame {
 
     private JMenuBar jmbBarra;
-    private JMenu jmAluno,mRelatorios,mEnsino;
+    private JMenu jmAluno,mRelatorios,mEnsino,mFuncionarios;
     private ImageIcon imagem;
     JLabel limg;
-    private JMenuItem jmiCadastroAluno, jmiMostrarAluno, jmiAtualizarAluno,miGerarRelatorio,miAdcNotas,miadcDiciplinas;
+    private JMenuItem jmiCadastroAluno, jmiMostrarAluno, jmiAtualizarAluno,miGerarRelatorio,miAdcNotas,miadcDiciplinas,miProfessor,micadastrarProfessor;
     public static List<Aluno> alunoList= new ArrayList<>();
+    public static List<Professores> professores= new ArrayList<>();
     public Principal(String title, List<Aluno> alunoList) throws HeadlessException {
         super(title);
         setSize(800, 500);
@@ -33,6 +35,7 @@ public class Principal extends JFrame {
         imagem = new ImageIcon(getClass().getResource("/resurce/logo.png"));
         limg = new JLabel(imagem);
         mEnsino = new JMenu("Ensino");
+        mFuncionarios = new JMenu("Funcionarios");
         jmbBarra = new JMenuBar();
         setJMenuBar(jmbBarra);
         jmAluno = new JMenu("Aluno");
@@ -40,12 +43,17 @@ public class Principal extends JFrame {
         jmbBarra.add(jmAluno);
         jmbBarra.add(mEnsino);
         jmbBarra.add(mRelatorios);
+        jmbBarra.add(mFuncionarios);
         jmiAtualizarAluno = new JMenuItem("Atualizar"); //
         jmiCadastroAluno = new JMenuItem("Cadastrar");//
         miAdcNotas = new JMenuItem("Adicionar Notas");
         jmiMostrarAluno = new JMenuItem("Mostrar");//
         miGerarRelatorio = new JMenuItem("Gerar Relatorios");
         miadcDiciplinas = new JMenuItem("Adicionar Diciplina");
+        miProfessor = new JMenu("Professor");
+        micadastrarProfessor = new JMenuItem("Cadastrar");
+        mFuncionarios.add(miProfessor);
+        miProfessor.add(micadastrarProfessor);
         mRelatorios.add(miGerarRelatorio);
         mEnsino.add(miadcDiciplinas);
         jmAluno.add(jmiCadastroAluno);
@@ -58,6 +66,16 @@ public class Principal extends JFrame {
     }
 
     private void criarEventos() {
+        micadastrarProfessor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CadastroProfessor cadastroProfessor = new CadastroProfessor();
+                getContentPane().removeAll();
+                getContentPane().add(cadastroProfessor);
+                getContentPane().validate();
+                repaint();
+            }
+        });
         miadcDiciplinas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
