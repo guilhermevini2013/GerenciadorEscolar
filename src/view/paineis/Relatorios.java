@@ -1,7 +1,7 @@
 package view.paineis;
 
 import models.Aluno;
-import view.TelaAluno;
+import view.frame.Principal;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,7 +44,7 @@ public class Relatorios extends JPanel {
     private void criarEventos() {
         //GERA RELATORIOS AUTOMATICAMENTE
         //EXIBIR NOTAS
-        for (Aluno aluno:TelaAluno.alunoList) {
+        for (Aluno aluno: Principal.alunoList) {
             try {
                 taRelatorio1.append("ALUNO "+aluno.getNome()+" "+aluno.getaprovacao()+ "\nNOTAS: "+aluno.getNota().stream().sorted().collect(Collectors.toList())+"\n\n");
             }catch (Exception a){
@@ -52,7 +52,7 @@ public class Relatorios extends JPanel {
         }
         //EXIBIR MEDIAS
         List<Double> mediasTodas = new ArrayList<>();
-        for (Aluno aluno:TelaAluno.alunoList) {
+        for (Aluno aluno: Principal.alunoList) {
 
             try {
                 mediasTodas.add(aluno.notasMedia(aluno.getNota()));

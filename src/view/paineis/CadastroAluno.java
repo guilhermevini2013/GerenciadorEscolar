@@ -1,7 +1,7 @@
 package view.paineis;
 
 import models.Aluno;
-import view.TelaAluno;
+import view.frame.Principal;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,10 +13,7 @@ public class CadastroAluno extends JPanel {
     JLabel limg;
     JTextField jtfNome , dataMatricula, jtfCpf, numeroMatricula, url, jtfSerie;
     JButton jbCadastrar;
-
     private ImageIcon imagem;
-
-
 
     public CadastroAluno() {
         setLayout(null);
@@ -98,7 +95,7 @@ public class CadastroAluno extends JPanel {
                     long matricula=Long.parseLong(numeroMatricula.getText());
                     int anoEscolar=Integer.parseInt(jtfSerie.getText());
                     String urlFoto=url.getText();
-                    TelaAluno.alunoList.add(new Aluno(nome,cpf,data,matricula,anoEscolar,urlFoto));
+                    Principal.alunoList.add(new Aluno(nome,cpf,data,matricula,anoEscolar,urlFoto));
                     jtfNome.setText("");
                     jtfCpf.setText("");
                     jtfSerie.setText("");

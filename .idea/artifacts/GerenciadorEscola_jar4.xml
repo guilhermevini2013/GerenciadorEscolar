@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GerenciadorEscola:jar4">
+    <output-path>$PROJECT_DIR$/out/artifacts/GerenciadorEscola_jar4</output-path>
+    <root id="archive" name="GerenciadorEscola.jar">
+      <element id="module-output" name="GerenciadorEscola" />
+    </root>
+  </artifact>
+</component>

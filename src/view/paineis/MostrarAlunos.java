@@ -1,7 +1,7 @@
 package view.paineis;
 
 import models.Aluno;
-import view.TelaAluno;
+import view.frame.Principal;
 
 import javax.swing.*;
 import java.awt.*;
@@ -61,7 +61,7 @@ public class MostrarAlunos extends JPanel {
         jbMostrar.setBounds(330, 115, 140, 25);
         limg.setBounds(0,-50,800,500);
         tprocurar.setBounds(320,77,160,30);
-        for (Aluno aluno:TelaAluno.alunoList) {
+        for (Aluno aluno: Principal.alunoList) {
             System.out.println(aluno.getNome());
         }
     }
@@ -74,7 +74,7 @@ public class MostrarAlunos extends JPanel {
                 if (!tprocurar.getText().isEmpty()){
                     long numeroAluno = Long.parseLong(tprocurar.getText());
                     boolean achou = false;
-                    for (Aluno aluno:TelaAluno.alunoList) {
+                    for (Aluno aluno: Principal.alunoList) {
                         if (aluno.getMatricula()==numeroAluno){
                             lnome.setText(aluno.getNome());
                             lcpf.setText(aluno.getCpf());
@@ -102,7 +102,7 @@ public class MostrarAlunos extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 boolean achou = false;
                 String nomeAluno = lnome.getText();
-                for (Aluno aluno:TelaAluno.alunoList) {
+                for (Aluno aluno: Principal.alunoList) {
                     if (aluno.getNome().contains(nomeAluno)){
                         JOptionPane.showMessageDialog(null,aluno.mostrarDados());
                         achou=true;

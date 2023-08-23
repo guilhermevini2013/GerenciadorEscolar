@@ -1,4 +1,4 @@
-package view;
+package view.frame;
 
 import models.Aluno;
 import view.paineis.*;
@@ -9,15 +9,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TelaAluno extends JFrame {
+public class Principal extends JFrame {
 
     private JMenuBar jmbBarra;
-    private JMenu jmAluno,mRelatorios;
+    private JMenu jmAluno,mRelatorios,mEnsino;
     private ImageIcon imagem;
     JLabel limg;
-    private JMenuItem jmiCadastroAluno, jmiMostrarAluno, jmiAtualizarAluno,miGerarRelatorio,miAdcNotas;
+    private JMenuItem jmiCadastroAluno, jmiMostrarAluno, jmiAtualizarAluno,miGerarRelatorio,miAdcNotas,miadcDiciplinas;
     public static List<Aluno> alunoList= new ArrayList<>();
-    public TelaAluno(String title, List<Aluno> alunoList) throws HeadlessException {
+    public Principal(String title, List<Aluno> alunoList) throws HeadlessException {
         super(title);
         setSize(800, 500);
         setResizable(false); // Desabilitar redimensionamento
@@ -32,18 +32,22 @@ public class TelaAluno extends JFrame {
     private void iniciarComponentes() {
         imagem = new ImageIcon(getClass().getResource("/resurce/logo.png"));
         limg = new JLabel(imagem);
+        mEnsino = new JMenu("Ensino");
         jmbBarra = new JMenuBar();
         setJMenuBar(jmbBarra);
         jmAluno = new JMenu("Aluno");
         mRelatorios = new JMenu("Relatorios");
         jmbBarra.add(jmAluno);
+        jmbBarra.add(mEnsino);
         jmbBarra.add(mRelatorios);
         jmiAtualizarAluno = new JMenuItem("Atualizar"); //
         jmiCadastroAluno = new JMenuItem("Cadastrar");//
         miAdcNotas = new JMenuItem("Adicionar Notas");
         jmiMostrarAluno = new JMenuItem("Mostrar");//
         miGerarRelatorio = new JMenuItem("Gerar Relatorios");
+        miadcDiciplinas = new JMenuItem("Adicionar Diciplina");
         mRelatorios.add(miGerarRelatorio);
+        mEnsino.add(miadcDiciplinas);
         jmAluno.add(jmiCadastroAluno);
         jmAluno.add(jmiAtualizarAluno);
         jmAluno.add(jmiMostrarAluno);
@@ -54,6 +58,13 @@ public class TelaAluno extends JFrame {
     }
 
     private void criarEventos() {
+        miadcDiciplinas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AdicionarDiciplina tela = new AdicionarDiciplina("ADICIONAR DICIPLINAS");
+                tela.setVisible(true);
+            }
+        });
         jmiAtualizarAluno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -138,7 +149,7 @@ public class TelaAluno extends JFrame {
     }
 
     public static void main(String[] args) {
-        TelaAluno tela = new TelaAluno("ESCOLA",alunoList);
+        Principal tela = new Principal("ESCOLA",alunoList);
         tela.setVisible(true);
     }
 
